@@ -1,2 +1,4 @@
 config/database.yml
+config/settings.rb
 /db/*.sql
+/log/*
