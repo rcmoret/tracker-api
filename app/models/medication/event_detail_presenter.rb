@@ -6,6 +6,10 @@ module Medication
       "#{quantity} #{unit.display_name} of #{name}"
     end
 
+    attribute :type do
+      type.presentable
+    end
+
     delegate :unit, :name, to: :type
   end
 end

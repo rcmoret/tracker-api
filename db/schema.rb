@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(version: 2020_03_13_135558) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "event_time", null: false
   end
 
   create_table "meal_event_details", force: :cascade do |t|
-    t.integer "meal_event_id", null: false
+    t.bigint "meal_event_id", null: false
     t.float "quantity", null: false
-    t.integer "victual_item_id", null: false
-    t.integer "unit_id", null: false
+    t.bigint "victual_item_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["meal_event_id"], name: "index_meal_event_details_on_meal_event_id"
     t.index ["unit_id"], name: "index_meal_event_details_on_unit_id"
     t.index ["victual_item_id"], name: "index_meal_event_details_on_victual_item_id"
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_135558) do
 
   create_table "meal_events", force: :cascade do |t|
     t.datetime "event_time", null: false
-    t.integer "meal_type_id", null: false
+    t.bigint "meal_type_id", null: false
     t.index ["meal_type_id"], name: "index_meal_events_on_meal_type_id"
   end
 
@@ -66,8 +67,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_135558) do
   end
 
   create_table "medication_event_details", force: :cascade do |t|
-    t.integer "medication_event_id", null: false
-    t.integer "medication_type_id", null: false
+    t.bigint "medication_event_id", null: false
+    t.bigint "medication_type_id", null: false
     t.integer "quantity", null: false
     t.index ["medication_event_id"], name: "index_medication_event_details_on_medication_event_id"
     t.index ["medication_type_id"], name: "index_medication_event_details_on_medication_type_id"
@@ -153,4 +154,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_135558) do
     t.datetime "event_time", null: false
   end
 
+  add_foreign_key "medication_event_details", "medication_events"
+  add_foreign_key "medication_event_details", "medication_types"
+  add_foreign_key "medication_types", "units"
 end

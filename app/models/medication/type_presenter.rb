@@ -3,7 +3,7 @@
 module Medication
   class TypePresenter < BasePresenter
     attribute :unit do
-      object.unit.display_name
+      unit.presentable
     end
   end
 end
