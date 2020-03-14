@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_135558) do
+ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
