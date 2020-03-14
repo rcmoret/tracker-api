@@ -2,6 +2,8 @@
 
 require 'graphql'
 require './app/graphql/types/base_type'
+require './app/graphql/types/meal/detail'
+require './app/graphql/types/meal/event'
 require './app/graphql/types/medication/type'
 require './app/graphql/types/medication/event_detail'
 require './app/graphql/types/medication/event'

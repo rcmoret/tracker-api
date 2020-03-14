@@ -154,6 +154,12 @@ ActiveRecord::Schema.define(version: 2020_03_13_135558) do
     t.datetime "event_time", null: false
   end
 
+  add_foreign_key "day_tags", "days"
+  add_foreign_key "day_tags", "tags"
+  add_foreign_key "meal_event_details", "meal_events"
+  add_foreign_key "meal_event_details", "units"
+  add_foreign_key "meal_event_details", "victual_items"
+  add_foreign_key "meal_events", "meal_types"
   add_foreign_key "medication_event_details", "medication_events"
   add_foreign_key "medication_event_details", "medication_types"
   add_foreign_key "medication_types", "units"
