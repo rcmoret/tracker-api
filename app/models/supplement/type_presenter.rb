@@ -3,7 +3,7 @@
 module Supplement
   class TypePresenter < BasePresenter
     attribute :unit do
-      unit.display_name
+      unit.presentable
     end
   end
 end

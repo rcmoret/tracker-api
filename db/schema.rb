@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   create_table "supplement_event_details", force: :cascade do |t|
     t.float "quantity", null: false
-    t.integer "supplement_event_id", null: false
-    t.integer "supplement_type_id", null: false
+    t.bigint "supplement_event_id", null: false
+    t.bigint "supplement_type_id", null: false
     t.index ["supplement_event_id"], name: "index_supplement_event_details_on_supplement_event_id"
     t.index ["supplement_type_id"], name: "index_supplement_event_details_on_supplement_type_id"
   end
@@ -166,5 +166,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   add_foreign_key "medication_event_details", "medication_events"
   add_foreign_key "medication_event_details", "medication_types"
   add_foreign_key "medication_types", "units"
+  add_foreign_key "supplement_event_details", "supplement_events"
+  add_foreign_key "supplement_event_details", "supplement_types"
+  add_foreign_key "supplement_types", "units"
   add_foreign_key "victual_items", "victual_types"
 end

@@ -17,6 +17,10 @@ module Types
       description 'Types of medications'
     end
 
+    field :supplement_types, [SupplementType], null: false do
+      description 'Types of supplements'
+    end
+
     field :units, [Unit], null: false do
       description 'Units of measure'
     end
@@ -29,10 +33,6 @@ module Types
       description 'Food, bev or condiment/ingedient'
     end
 
-    field :victual_types, [VictualType], null: false do
-      description 'victual type: food or drink'
-    end
-
     field :workout_activities, [Workout::Activity], null: false do
       description 'Types of worksouts that are possible'
     end
@@ -41,8 +41,16 @@ module Types
       @day ||= Day.for(day: day_number, month: month, year: year).presentable
     end
 
+    def log_detail_types
+      @log_detail_types = ::Log::DetailType.all.map(&:presentable)
+    end
+
     def medication_types
       @medication_types ||= ::Medication::Type.all.map(&:presentable)
+    end
+
+    def supplement_types
+      @supplement_types ||= ::Supplement::Type.all.map(&:presentable)
     end
 
     def units
