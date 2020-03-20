@@ -8,6 +8,7 @@ group :development do
 
   gem 'activerecord'
   gem 'graphql'
+  gem 'pg'
   gem 'rack-cors'
   gem 'rb-readline'
   gem 'sqlite3'
