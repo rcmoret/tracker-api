@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   end
 
   create_table "log_details", force: :cascade do |t|
-    t.integer "log_entry_id", null: false
-    t.integer "log_detail_type_id", null: false
+    t.bigint "log_entry_id", null: false
+    t.bigint "log_detail_type_id", null: false
     t.string "rating"
     t.index ["log_detail_type_id"], name: "index_log_details_on_log_detail_type_id"
     t.index ["log_entry_id"], name: "index_log_details_on_log_entry_id"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   add_foreign_key "day_tags", "days"
   add_foreign_key "day_tags", "tags"
+  add_foreign_key "log_details", "log_detail_types"
+  add_foreign_key "log_details", "log_entries"
   add_foreign_key "meal_event_details", "meal_events"
   add_foreign_key "meal_event_details", "units"
   add_foreign_key "meal_event_details", "victual_items"

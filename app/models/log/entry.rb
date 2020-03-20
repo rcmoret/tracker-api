@@ -4,6 +4,7 @@ module Log
   class Entry < ActiveRecord::Base
     include Presentable
     include Shared::Scopes::For
+    has_many :details, foreign_key: :log_entry_id
     validates :notes, presence: true
     validates :event_time, presence: true
     alias_attribute :narrative, :notes

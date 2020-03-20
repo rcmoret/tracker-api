@@ -7,5 +7,7 @@ module Log
     PUBLIC_ATTRS = %w[
       description
     ].freeze
+
+    alias presentable attributes
   end
 end

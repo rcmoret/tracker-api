@@ -3,7 +3,7 @@
 module Log
   class EntryPresenter < BasePresenter
     attribute :details do
-      object.details.map(&:presentable)
+      details.map(&:presentable)
     end
   end
 end

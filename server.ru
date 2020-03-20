@@ -15,6 +15,10 @@ map '/api/graphql' do
   run API::Graphql.new
 end
 
+map '/api/logs/' do
+  run Log::API::Entries.new
+end
+
 map '/api/meals' do
   run Meal::API::Events.new
 end

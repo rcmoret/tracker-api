@@ -9,6 +9,10 @@ module Types
       argument :year, Integer, required: true
     end
 
+    field :log_detail_types, [Log::DetailType], null: false do
+      description 'Types of details that can be recorded'
+    end
+
     field :meal_events, [MealEvent], null: false do
       description 'Meal events'
     end

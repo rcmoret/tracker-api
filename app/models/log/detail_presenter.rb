@@ -3,7 +3,7 @@
 module Log
   class DetailPresenter < BasePresenter
     attribute :type do
-      type.description
+      type.presentable
     end
   end
 end
