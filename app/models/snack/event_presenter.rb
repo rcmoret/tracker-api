@@ -3,7 +3,7 @@
 module Snack
   class EventPresenter < BasePresenter
     attribute :unit do
-      unit.display_name
+      unit.presentable
     end
 
     attribute :victual_item do

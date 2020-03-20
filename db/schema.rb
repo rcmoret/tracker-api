@@ -168,6 +168,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   add_foreign_key "medication_event_details", "medication_events"
   add_foreign_key "medication_event_details", "medication_types"
   add_foreign_key "medication_types", "units"
+  add_foreign_key "snack_events", "units"
+  add_foreign_key "snack_events", "victual_items"
   add_foreign_key "supplement_event_details", "supplement_events"
   add_foreign_key "supplement_event_details", "supplement_types"
   add_foreign_key "supplement_types", "units"
