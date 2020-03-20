@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   create_table "medication_types", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "unit_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["name"], name: "index_medication_types_on_name", unique: true
     t.index ["unit_id"], name: "index_medication_types_on_unit_id"
   end
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   create_table "supplement_types", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "unit_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["name"], name: "index_supplement_types_on_name", unique: true
     t.index ["unit_id"], name: "index_supplement_types_on_unit_id"
   end
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   create_table "workout_event_details", force: :cascade do |t|
     t.integer "workout_event_id", null: false
     t.integer "workout_activity_id", null: false
-    t.integer "unit_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["unit_id"], name: "index_workout_event_details_on_unit_id"
     t.index ["workout_activity_id"], name: "index_workout_event_details_on_workout_activity_id"
     t.index ["workout_event_id"], name: "index_workout_event_details_on_workout_event_id"

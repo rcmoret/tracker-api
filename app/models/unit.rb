@@ -9,6 +9,8 @@ class Unit < ActiveRecord::Base
     name
   ].freeze
 
+  alias presentable attributes
+
   def destroy
     false
   end

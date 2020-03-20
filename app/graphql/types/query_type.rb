@@ -17,12 +17,20 @@ module Types
       description 'Types of medications'
     end
 
+    field :units, [Unit], null: false do
+      description 'Units of measure'
+    end
+
     def day(day_number:, month:, year:)
       @day ||= Day.for(day: day_number, month: month, year: year).presentable
     end
 
     def medication_types
       @medication_types ||= ::Medication::Type.all.map(&:presentable)
+    end
+
+    def units
+      @units ||= ::Unit.all
     end
   end
 end
