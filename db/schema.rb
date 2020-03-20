@@ -12,16 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "day_tags", force: :cascade do |t|
-    t.integer "day_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "day_id", null: false
+    t.bigint "tag_id", null: false
     t.index ["day_id"], name: "index_day_tags_on_day_id"
     t.index ["tag_id"], name: "index_day_tags_on_tag_id"
   end
 
   create_table "days", force: :cascade do |t|
-    t.integer "day", limit: 31, null: false
-    t.integer "month", limit: 12, null: false
+    t.integer "day", null: false
+    t.integer "month", null: false
     t.integer "year", null: false
   end
 

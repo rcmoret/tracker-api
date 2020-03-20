@@ -23,7 +23,7 @@ module Log
       end
 
       def detail_klass
-        EntryDetail
+        Detail
       end
     end
   end

@@ -13,8 +13,16 @@ module Types
       description 'Meal events'
     end
 
+    field :medication_types, [MedicationType], null: false do
+      description 'Types of medications'
+    end
+
     def day(day_number:, month:, year:)
-      Day.for(day: day_number, month: month, year: year).presentable
+      @day ||= Day.for(day: day_number, month: month, year: year).presentable
+    end
+
+    def medication_types
+      @medication_types ||= ::Medication::Type.all.map(&:presentable)
     end
   end
 end
