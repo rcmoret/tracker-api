@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   create_table "snack_events", force: :cascade do |t|
     t.datetime "event_time", null: false
     t.float "quantity", null: false
-    t.integer "victual_item_id", null: false
-    t.integer "unit_id", null: false
+    t.bigint "victual_item_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["unit_id"], name: "index_snack_events_on_unit_id"
     t.index ["victual_item_id"], name: "index_snack_events_on_victual_item_id"
   end
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
 
   create_table "victual_items", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "victual_type_id", null: false
+    t.bigint "victual_type_id", null: false
     t.index ["name"], name: "index_victual_items_on_name", unique: true
     t.index ["victual_type_id"], name: "index_victual_items_on_victual_type_id"
   end
@@ -166,4 +166,5 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   add_foreign_key "medication_event_details", "medication_events"
   add_foreign_key "medication_event_details", "medication_types"
   add_foreign_key "medication_types", "units"
+  add_foreign_key "victual_items", "victual_types"
 end

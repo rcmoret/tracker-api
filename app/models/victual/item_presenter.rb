@@ -2,8 +2,10 @@
 
 module Victual
   class ItemPresenter < BasePresenter
-    delegate :name, to: :type, prefix: true
+    attribute :type do
+      type.presentable
+    end
 
-    attribute :type_name
+    attribute :type_id
   end
 end

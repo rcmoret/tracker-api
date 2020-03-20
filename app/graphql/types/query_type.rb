@@ -21,6 +21,22 @@ module Types
       description 'Units of measure'
     end
 
+    field :victual_items, [Victual::Item], null: false do
+      description 'Food and drink items'
+    end
+
+    field :victual_types, [Victual::Type], null: false do
+      description 'Food, bev or condiment/ingedient'
+    end
+
+    field :victual_types, [VictualType], null: false do
+      description 'victual type: food or drink'
+    end
+
+    field :workout_activities, [Workout::Activity], null: false do
+      description 'Types of worksouts that are possible'
+    end
+
     def day(day_number:, month:, year:)
       @day ||= Day.for(day: day_number, month: month, year: year).presentable
     end
@@ -31,6 +47,14 @@ module Types
 
     def units
       @units ||= ::Unit.all
+    end
+
+    def victual_items
+      @victual_items ||= ::Victual::Item.all.map(&:presentable)
+    end
+
+    def victual_types
+      @victual_types ||= ::Victual::Type.all.map(&:presentable)
     end
   end
 end

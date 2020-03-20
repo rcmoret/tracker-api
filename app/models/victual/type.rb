@@ -5,10 +5,10 @@ module Victual
     VALID_TYPES = [
       FOOD = :food,
       BEVERAGE = :beverage,
+      CONDIMENT = :condiment,
     ].freeze
     validates :name, inclusion: VALID_TYPES.map(&:to_s), uniqueness: true
 
-    scope :food, -> { where(name: FOOD) }
-    scope :beverage, -> { where(name: BEVERAGE) }
+    alias presentable attributes
   end
 end
