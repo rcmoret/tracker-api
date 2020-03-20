@@ -145,8 +145,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   end
 
   create_table "workout_event_details", force: :cascade do |t|
-    t.integer "workout_event_id", null: false
-    t.integer "workout_activity_id", null: false
+    t.bigint "workout_event_id", null: false
+    t.bigint "workout_activity_id", null: false
     t.bigint "unit_id", null: false
     t.index ["unit_id"], name: "index_workout_event_details_on_unit_id"
     t.index ["workout_activity_id"], name: "index_workout_event_details_on_workout_activity_id"
@@ -172,4 +172,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_172555) do
   add_foreign_key "supplement_event_details", "supplement_types"
   add_foreign_key "supplement_types", "units"
   add_foreign_key "victual_items", "victual_types"
+  add_foreign_key "workout_event_details", "units"
+  add_foreign_key "workout_event_details", "workout_activities"
+  add_foreign_key "workout_event_details", "workout_events"
 end

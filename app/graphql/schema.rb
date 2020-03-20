@@ -14,6 +14,7 @@ require './app/graphql/types/medication/event'
 require './app/graphql/types/supplement/type'
 require './app/graphql/types/supplement/event_detail'
 require './app/graphql/types/supplement/event'
+require './app/graphql/types/workout/activity'
 require './app/graphql/types/day_type'
 require './app/graphql/types/query_type'
 

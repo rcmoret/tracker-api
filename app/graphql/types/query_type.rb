@@ -68,5 +68,9 @@ module Types
     def victual_types
       @victual_types ||= ::Victual::Type.all.map(&:presentable)
     end
+
+    def workout_activities
+      @workout_activities ||= ::Workout::Activities.all.map(&:presentable)
+    end
   end
 end
