@@ -13,8 +13,8 @@ module Types
       description 'Types of details that can be recorded'
     end
 
-    field :meal_events, [MealEvent], null: false do
-      description 'Meal events'
+    field :meal_types, [MealType], null: false do
+      description 'Meal types'
     end
 
     field :medication_types, [MedicationType], null: false do
@@ -33,7 +33,7 @@ module Types
       description 'Food and drink items'
     end
 
-    field :victual_types, [Victual::Type], null: false do
+    field :victual_types, [VictualType], null: false do
       description 'Food, bev or condiment/ingedient'
     end
 
@@ -51,6 +51,10 @@ module Types
 
     def medication_types
       @medication_types ||= ::Medication::Type.all.map(&:presentable)
+    end
+
+    def meal_types
+      @meal_types ||= ::Meal::Type.all.map(&:presentable)
     end
 
     def supplement_types

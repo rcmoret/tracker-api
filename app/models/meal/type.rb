@@ -3,5 +3,7 @@
 module Meal
   class Type < ActiveRecord::Base
     validates :name, uniqueness: true, presence: true
+
+    alias presentable attributes
   end
 end
